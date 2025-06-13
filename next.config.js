@@ -3,6 +3,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    serverComponentsExternalPackages: ["@supabase/supabase-js"],
+  },
   webpack: (config) => {
     config.optimization.splitChunks = {
       chunks: 'all',
