@@ -3,17 +3,15 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    modularizeImports: true,
-  },
   webpack: (config) => {
     config.optimization.splitChunks = {
       chunks: 'all',
-      minSize: 20000, // 20KB
-      maxSize: 24000000, // 24MB (ใกล้ลิมิต)
+      minSize: 20000,
+      maxSize: 24000000,
     };
+    config.optimization.removeEmptyChunks = true;
     return config;
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
